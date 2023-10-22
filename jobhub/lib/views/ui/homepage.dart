@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import 'package:get/get.dart';
 import 'package:jobhub/views/common/app_bar.dart';
+import 'package:jobhub/views/common/drawer/drawer_widget.dart';
+import 'package:jobhub/views/common/exports.dart';
+import 'package:jobhub/views/common/heading_widget.dart';
+import 'package:jobhub/views/common/height_spacer.dart';
+import 'package:jobhub/views/common/search.dart';
+import 'package:jobhub/views/ui/jobs/widgets/horizontal_tile.dart';
+import 'package:jobhub/views/ui/search/searchpage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,10 +20,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(50),
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(50),
         child: CustomAppBar(
-          actions: const [
+          actions: [
             Padding(
               padding: EdgeInsets.all(13),
               child: CircleAvatar(
@@ -26,18 +32,49 @@ class _HomePageState extends State<HomePage> {
               ),
             )
           ],
-          child: drawerWidget(),
+          child: DrawerWidget(),
         ),
       ),
-    );
-  }
-
-  Widget drawerWidget() {
-    return GestureDetector(
-      onTap: () => ZoomDrawer.of(context)!.toggle(),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SvgPicture.asset('assets/icons/menu.svg'),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const HeightSpacer(size: 10),
+                Text(
+                  "Search\nFind & Apply",
+                  style: appstyle(40, Color(kDark.value), FontWeight.bold),
+                ),
+                const HeightSpacer(size: 10),
+                SearchWidget(ontap: () => Get.to(() => const SearchPage())),
+                const HeightSpacer(size: 30),
+                HeadingWidget(
+                  text: 'Popular Jobs',
+                  ontap: () {},
+                ),
+                SizedBox(
+                  height: hieght * 0.28,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemCount: 4,
+                    itemBuilder: (context, index) {
+                      return JobHorizontalTile(ontap: () {});
+                    },
+                  ),
+                ),
+                const HeightSpacer(size: 20),
+                HeadingWidget(
+                  text: 'Recently Posted',
+                  ontap: () {},
+                ),
+                const HeightSpacer(size: 20),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

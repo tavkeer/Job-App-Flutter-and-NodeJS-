@@ -13,6 +13,28 @@ class DrawerScreen extends StatefulWidget {
 }
 
 class _DrawerScreenState extends State<DrawerScreen> {
+  Widget drawerItem({
+    required IconData icon,
+    required String text,
+    required Color color,
+    required int index,
+  }) {
+    return GestureDetector(
+      onTap: () => widget.valueSetter(index),
+      child: ListTile(
+        leading: Icon(icon, color: color),
+        title: Text(
+          text,
+          style: appstyle(
+            12,
+            color,
+            FontWeight.w400,
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<ZoomNotifier>(
@@ -27,7 +49,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Draweritem(
+                drawerItem(
                   icon: AntDesign.home,
                   text: 'Home',
                   index: 0,
@@ -35,7 +57,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                       ? Color(kLight.value)
                       : Color(kDarkGrey.value),
                 ),
-                Draweritem(
+                drawerItem(
                   icon: Ionicons.chatbubble_outline,
                   text: 'Chat',
                   index: 1,
@@ -43,7 +65,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                       ? Color(kLight.value)
                       : Color(kDarkGrey.value),
                 ),
-                Draweritem(
+                drawerItem(
                   icon: Ionicons.bookmark_outline,
                   text: 'Bookmarks',
                   index: 2,
@@ -51,7 +73,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                       ? Color(kLight.value)
                       : Color(kDarkGrey.value),
                 ),
-                Draweritem(
+                drawerItem(
                   icon: MaterialCommunityIcons.devices,
                   text: 'Device Mng',
                   index: 3,
@@ -59,7 +81,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                       ? Color(kLight.value)
                       : Color(kDarkGrey.value),
                 ),
-                Draweritem(
+                drawerItem(
                   icon: FontAwesome.user_circle_o,
                   text: 'Profile',
                   index: 4,
@@ -72,34 +94,6 @@ class _DrawerScreenState extends State<DrawerScreen> {
           ),
         );
       }),
-    );
-  }
-}
-
-class Draweritem extends StatelessWidget {
-  const Draweritem(
-      {super.key,
-      required this.icon,
-      required this.text,
-      required this.index,
-      required this.color});
-
-  final IconData icon;
-  final String text;
-  final int index;
-  final Color color;
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      leading: Icon(icon, color: color),
-      title: Text(
-        text,
-        style: appstyle(
-          12,
-          color,
-          FontWeight.w400,
-        ),
-      ),
     );
   }
 }
