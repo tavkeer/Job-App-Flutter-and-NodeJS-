@@ -172,6 +172,7 @@ class _JobPageState extends State<JobPage> {
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 20),
                 child: CustomOutlineBtn(
+                  ontap: () {},
                   width: width,
                   height: hieght * 0.06,
                   text: 'Apply Now',

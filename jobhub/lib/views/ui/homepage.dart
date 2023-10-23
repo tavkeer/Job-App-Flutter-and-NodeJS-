@@ -65,7 +65,10 @@ class _HomePageState extends State<HomePage> {
                     itemBuilder: (context, index) {
                       return JobHorizontalTile(
                         ontap: () => Get.to(
-                          () => const JobPage(title: 'Facebook', id: '12'),
+                          () => const JobPage(
+                            title: 'Facebook',
+                            id: '12',
+                          ),
                         ),
                       );
                     },
