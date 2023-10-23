@@ -1,13 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jobhub/constants/app_constants.dart';
 import 'package:jobhub/views/common/app_bar.dart';
-import 'package:jobhub/views/common/custom_btn.dart';
 import 'package:jobhub/views/common/custom_outline_btn.dart';
 import 'package:jobhub/views/common/exports.dart';
 import 'package:jobhub/views/common/height_spacer.dart';
-import 'package:jobhub/views/common/reusable_text.dart';
 
 class JobPage extends StatefulWidget {
   const JobPage({super.key, required this.title, required this.id});
