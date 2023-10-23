@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jobhub/constants/app_constants.dart';
 import 'package:jobhub/views/common/app_bar.dart';
+import 'package:jobhub/views/common/custom_btn.dart';
 import 'package:jobhub/views/common/custom_outline_btn.dart';
 import 'package:jobhub/views/common/exports.dart';
 import 'package:jobhub/views/common/height_spacer.dart';
@@ -117,7 +118,70 @@ class _JobPageState extends State<JobPage> {
                     ],
                   ),
                 ),
+                const HeightSpacer(size: 20),
+                ReusableText(
+                  text: 'Job Description',
+                  style: appstyle(
+                    22,
+                    Color(kDark.value),
+                    FontWeight.w600,
+                  ),
+                ),
+                const HeightSpacer(size: 10),
+                Text(
+                  desc,
+                  textAlign: TextAlign.justify,
+                  maxLines: 8,
+                  style: appstyle(
+                    16,
+                    Color(kDarkGrey.value),
+                    FontWeight.normal,
+                  ),
+                ),
+                const HeightSpacer(size: 20),
+                ReusableText(
+                  text: 'Requirements',
+                  style: appstyle(
+                    22,
+                    Color(kDark.value),
+                    FontWeight.w600,
+                  ),
+                ),
+                const HeightSpacer(size: 10),
+                ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: requirements.length,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    String bullet = '\u2022';
+                    final String req = requirements[index];
+                    return Text(
+                      '$bullet $req\n',
+                      textAlign: TextAlign.justify,
+                      // maxLines: 3,
+                      style: appstyle(
+                        16,
+                        Color(kDarkGrey.value),
+                        FontWeight.normal,
+                      ),
+                    );
+                  },
+                ),
+                const HeightSpacer(size: 50),
               ],
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: CustomOutlineBtn(
+                  width: width,
+                  height: hieght * 0.06,
+                  text: 'Apply Now',
+                  color: Color(kLight.value),
+                  color2: Color(kOrange.value),
+                ),
+              ),
             ),
           ],
         ),
