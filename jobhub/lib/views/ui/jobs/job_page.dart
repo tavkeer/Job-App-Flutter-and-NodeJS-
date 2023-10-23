@@ -86,7 +86,31 @@ class _JobPageState extends State<JobPage> {
                               text: 'Full-Time',
                               color: Color(kOrange.value),
                               color2: Color(kLight.value),
-                            )
+                            ),
+                            Row(
+                              // mainAxisAlignment: ,
+                              children: [
+                                ReusableText(
+                                  text: '10k',
+                                  style: appstyle(
+                                    22,
+                                    Color(kDark.value),
+                                    FontWeight.w600,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: width * 0.2,
+                                  child: ReusableText(
+                                    text: '/monthly ',
+                                    style: appstyle(
+                                      22,
+                                      Color(kDarkGrey.value),
+                                      FontWeight.w600,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
                           ],
                         ),
                       )
