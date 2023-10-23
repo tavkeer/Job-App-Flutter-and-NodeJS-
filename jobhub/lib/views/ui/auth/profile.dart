@@ -263,10 +263,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               child: ReusableText(
                                 text: '$bullet $skill',
                                 style: appstyle(
-                                  16,
-                                  Color(kDark.value),
-                                  FontWeight.normal,
-                                ),
+                                    16, Color(kDark.value), FontWeight.normal),
                               ),
                             ),
                           );
