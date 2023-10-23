@@ -27,7 +27,7 @@ class JobHorizontalTile extends StatelessWidget {
                 children: [
                   const CircleAvatar(
                     backgroundImage: AssetImage(
-                      'assets/images/user.png',
+                      'assets/images/Facebook.png',
                     ),
                   ),
                   const SizedBox(width: 15),
