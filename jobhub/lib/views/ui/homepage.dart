@@ -63,7 +63,11 @@ class _HomePageState extends State<HomePage> {
                     shrinkWrap: true,
                     itemCount: 4,
                     itemBuilder: (context, index) {
-                      return JobHorizontalTile(ontap: () {});
+                      return JobHorizontalTile(
+                        ontap: () => Get.to(
+                          () => const JobPage(title: 'Facebook', id: '12'),
+                        ),
+                      );
                     },
                   ),
                 ),
@@ -73,11 +77,7 @@ class _HomePageState extends State<HomePage> {
                   ontap: () {},
                 ),
                 const HeightSpacer(size: 20),
-                const VerticalTile(
-                    // ontap: () => Get.to(
-                    // () => const JobPage(),
-                    // ),
-                    ),
+                const VerticalTile(),
               ],
             ),
           ),
