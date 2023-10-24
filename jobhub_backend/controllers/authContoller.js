@@ -36,7 +36,7 @@ module.exports = {
         res.status(401).json("Wrong Password");
 
       //sending only others ie except the listed fields
-      const { password, __v, createdAt, ...others } = user._docs;
+      const { password, __v, createdAt, ...others } = user._doc;
       res.status(200).json(others);
     } catch (error) {
       res.status(500).json(error);
